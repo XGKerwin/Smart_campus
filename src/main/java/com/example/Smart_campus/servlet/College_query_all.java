@@ -28,6 +28,7 @@ public class College_query_all extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req,resp);
+        System.out.println();
     }
 
     @Override
