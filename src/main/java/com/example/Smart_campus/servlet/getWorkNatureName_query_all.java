@@ -1,7 +1,7 @@
 package com.example.Smart_campus.servlet;
 
-import com.example.Smart_campus.bean.Work_nature_bean;
-import com.example.Smart_campus.dao.impl.Work_natureDaoImpL;
+import com.example.Smart_campus.bean.WorkNature;
+import com.example.Smart_campus.dao.impl.WorkNatureDaoImpl;
 import com.example.Smart_campus.utils.ServletUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,13 +28,13 @@ public class getWorkNatureName_query_all extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req,resp);
-        List<Work_nature_bean> work_nature_beans = new Work_natureDaoImpL().query();
+        List<WorkNature> work_natures = new WorkNatureDaoImpl().queryWorkNatureAll();
         JSONObject jsonObject = new JSONObject();
 
-        if (work_nature_beans != null){
-            jsonObject.put("data",new JSONArray(work_nature_beans));
+        if (work_natures != null){
+            jsonObject.put("data",new JSONArray(work_natures));
         }
-        ServletUtils.isOk(jsonObject,work_nature_beans != null);
+        ServletUtils.isOk(jsonObject, work_natures != null);
         resp.getWriter().write(jsonObject.toString());
 
     }

@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao.impl;
 
-import com.example.Smart_campus.bean.Province_bean;
+import com.example.Smart_campus.bean.Province;
 import com.example.Smart_campus.dao.ProvinceDao;
 
 import java.util.List;
@@ -17,9 +17,15 @@ public class ProvinceDaoImpl extends BaseDao implements ProvinceDao {
      * @return
      */
     @Override
-    public List<Province_bean> query() {
+    public List<Province> queryProvinceAll() {
         String sql = "select * from province";
-        return queryForList(Province_bean.class,sql);
+        return queryForList(Province.class,sql);
+    }
+
+    @Override
+    public Province queryProvinceByProvinceName(String provinceName) {
+        String sql = "select * from province where provinceName = ?";
+        return queryForOne(Province.class , sql , provinceName);
     }
 
 }

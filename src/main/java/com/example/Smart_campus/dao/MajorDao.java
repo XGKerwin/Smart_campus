@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao;
 
-import com.example.Smart_campus.bean.Major_bean;
+import com.example.Smart_campus.bean.Major;
 
 import java.util.List;
 
@@ -16,12 +16,12 @@ public interface MajorDao {
      * @param collegeId 所在系的id
      * @return
      */
-    public List<Major_bean> query_collegeId(String collegeId);
+    public List<Major> queryMajorByCollegeId(String collegeId);
 
     /**
      * 查询所有专业
      * @return 查询所有专业
      */
-    public List<Major_bean> query_college();
+    public List<Major> queryMajorAll();
 
 }

@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao.impl;
 
-import com.example.Smart_campus.bean.Student_bean;
+import com.example.Smart_campus.bean.Student;
 import com.example.Smart_campus.dao.StudentDao;
 
 import java.util.List;
@@ -18,8 +18,20 @@ public class StudentDaoImpl extends BaseDao implements StudentDao {
      * @return
      */
     @Override
-    public List<Student_bean> query() {
+    public List<Student> queryStudentAll() {
         String sql = "select * from student";
-        return queryForList(Student_bean.class,sql);
+        return queryForList(Student.class,sql);
+    }
+
+    @Override
+    public List<Student> queryStudentByMunicipalId(String municipalId) {
+        String sql = "select * from student where municipalId = ?";
+        return queryForList(Student.class , sql , municipalId);
+    }
+
+    @Override
+    public List<Student> queryStudentByMajorId(String majorId) {
+        String sql = "select * from student where majorId = ?";
+        return queryForList(Student.class , sql , majorId);
     }
 }

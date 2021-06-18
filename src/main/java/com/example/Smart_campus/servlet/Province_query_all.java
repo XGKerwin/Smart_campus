@@ -1,6 +1,6 @@
 package com.example.Smart_campus.servlet;
 
-import com.example.Smart_campus.bean.Province_bean;
+import com.example.Smart_campus.bean.Province;
 import com.example.Smart_campus.dao.impl.ProvinceDaoImpl;
 import com.example.Smart_campus.utils.ServletUtils;
 import org.json.JSONArray;
@@ -28,12 +28,12 @@ public class Province_query_all extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req, resp);
-        List<Province_bean> province_beans = new ProvinceDaoImpl().query();
+        List<Province> province_s = new ProvinceDaoImpl().queryProvinceAll();
         JSONObject jsonObject = new JSONObject();
-        if (province_beans != null) {
-            jsonObject.put("data",new JSONArray(province_beans));
+        if (province_s != null) {
+            jsonObject.put("data",new JSONArray(province_s));
         }
-        ServletUtils.isOk(jsonObject,province_beans != null);
+        ServletUtils.isOk(jsonObject, province_s != null);
         resp.getWriter().write(jsonObject.toString());
 
     }

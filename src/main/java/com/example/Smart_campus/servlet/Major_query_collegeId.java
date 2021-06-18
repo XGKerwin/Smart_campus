@@ -1,6 +1,6 @@
 package com.example.Smart_campus.servlet;
 
-import com.example.Smart_campus.bean.Major_bean;
+import com.example.Smart_campus.bean.Major;
 import com.example.Smart_campus.dao.impl.MajorDaoImpl;
 import com.example.Smart_campus.utils.ServletUtils;
 import org.json.JSONArray;
@@ -29,12 +29,12 @@ public class Major_query_collegeId extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req,resp);
         JSONObject jsonObject = ServletUtils.getJSONObject(req);
-        List<Major_bean> major_beans = new MajorDaoImpl().query_collegeId(jsonObject.optString("collegeId"));
+        List<Major> major_s = new MajorDaoImpl().queryMajorByCollegeId(jsonObject.optString("collegeId"));
         JSONObject jsonObject1 = new JSONObject();
-        if (major_beans != null){
-            jsonObject1.put("data",new JSONArray(major_beans));
+        if (major_s != null){
+            jsonObject1.put("data",new JSONArray(major_s));
         }
-        ServletUtils.isOk(jsonObject1,major_beans != null);
+        ServletUtils.isOk(jsonObject1, major_s != null);
         resp.getWriter().write(jsonObject1.toString());
 
     }

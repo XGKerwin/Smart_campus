@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao;
 
-import com.example.Smart_campus.bean.Municipal_bean;
+import com.example.Smart_campus.bean.Municipal;
 
 import java.util.List;
 
@@ -15,8 +15,10 @@ public interface MunicipalDao {
      * @param provinceId 省级id
      * @return 通过省级id查询市
      */
-    public List<Municipal_bean> query_provinceId(String provinceId);
+    public List<Municipal> queryMunicipalByProvinceId(String provinceId);
 
-    public List<Municipal_bean> query();
+    public List<Municipal> queryMunicipalAll();
+
+    public Municipal queryMunicipalByName(String municipalName);
 
 }

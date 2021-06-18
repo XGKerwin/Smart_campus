@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao;
 
-import com.example.Smart_campus.bean.Student_bean;
+import com.example.Smart_campus.bean.Student;
 
 import java.util.List;
 
@@ -15,6 +15,10 @@ public interface StudentDao {
      *
      * @return 学生表的所有内容
      */
-    public List<Student_bean> query();
+    public List<Student> queryStudentAll();
+
+    public List<Student> queryStudentByMunicipalId(String municipalId);
+
+    public List<Student> queryStudentByMajorId(String majorId);
 
 }

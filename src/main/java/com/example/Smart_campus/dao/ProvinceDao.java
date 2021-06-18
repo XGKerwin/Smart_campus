@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao;
 
-import com.example.Smart_campus.bean.Province_bean;
+import com.example.Smart_campus.bean.Province;
 
 import java.util.List;
 
@@ -15,6 +15,8 @@ public interface ProvinceDao {
      * 查询所有省
      * @return
      */
-    public List<Province_bean> query();
+    public List<Province> queryProvinceAll();
+
+    public Province queryProvinceByProvinceName(String provinceName);
 
 }

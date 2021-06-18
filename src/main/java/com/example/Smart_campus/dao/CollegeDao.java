@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao;
 
-import com.example.Smart_campus.bean.College_bean;
+import com.example.Smart_campus.bean.College;
 
 import java.util.List;
 
@@ -16,6 +16,6 @@ public interface CollegeDao {
      * 查询所有系
      * @return
      */
-    public List<College_bean> query();
+    public List<College> queryCollegeAll();
 
 }

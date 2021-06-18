@@ -1,6 +1,6 @@
 package com.example.Smart_campus.servlet;
 
-import com.example.Smart_campus.bean.Student_bean;
+import com.example.Smart_campus.bean.Student;
 import com.example.Smart_campus.dao.impl.StudentDaoImpl;
 import com.example.Smart_campus.utils.ServletUtils;
 import org.json.JSONArray;
@@ -33,7 +33,7 @@ public class Student_query_all extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req,resp);
-        List<Student_bean> student_query_alls = new StudentDaoImpl().query();
+        List<Student> student_query_alls = new StudentDaoImpl().queryStudentAll();
         JSONObject jsonObject = new JSONObject();
         if (student_query_alls != null){
             jsonObject.put("data",new JSONArray(student_query_alls));

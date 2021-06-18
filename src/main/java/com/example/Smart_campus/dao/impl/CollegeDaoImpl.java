@@ -1,6 +1,6 @@
 package com.example.Smart_campus.dao.impl;
 
-import com.example.Smart_campus.bean.College_bean;
+import com.example.Smart_campus.bean.College;
 import com.example.Smart_campus.dao.CollegeDao;
 
 import java.util.List;
@@ -12,15 +12,14 @@ import java.util.List;
 
 public class CollegeDaoImpl extends BaseDao implements CollegeDao {
 
-
     /**
-     * 查询学习奥所有系
+     * 查询学校所有系
      * @return
      */
     @Override
-    public List<College_bean> query() {
+    public List<College> queryCollegeAll() {
         String sql = "select * from college";
-        return queryForList(College_bean.class,sql);
+        return queryForList(College.class,sql);
     }
 
 }
