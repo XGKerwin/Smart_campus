@@ -43,5 +43,4 @@ public class GetCollegeAll extends HttpServlet {
         resp.getWriter().write(jsonObject.toString());
     }
 
-
 }
