@@ -20,7 +20,7 @@ public class Student {
      * yu
      * shu
      * wai
-     * wai
+     * schoolCard
      */
 
 
@@ -36,6 +36,8 @@ public class Student {
     private String yu;
     private String shu;
     private String wai;
+    private String schoolCard;
+    private String sum;
 
     @Override
     public String toString() {
@@ -52,6 +54,8 @@ public class Student {
                 ", yu='" + yu + '\'' +
                 ", shu='" + shu + '\'' +
                 ", wai='" + wai + '\'' +
+                ", schoolCard='" + schoolCard + '\'' +
+                ", sum=" + sum +
                 '}';
     }
 
@@ -149,5 +153,21 @@ public class Student {
 
     public void setWai(String wai) {
         this.wai = wai;
+    }
+
+    public String getSchoolCard() {
+        return schoolCard;
+    }
+
+    public void setSchoolCard(String schoolCard) {
+        this.schoolCard = schoolCard;
+    }
+
+    public String getSum() {
+        return sum;
+    }
+
+    public void setSum(String sum) {
+        this.sum = sum;
     }
 }

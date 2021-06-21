@@ -12,7 +12,6 @@ import java.util.List;
 public interface StudentDao {
 
     /**
-     *
      * @return 学生表的所有内容
      */
     public List<Student> queryStudentAll();
