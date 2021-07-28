@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * 获取市的生源信息
+ * @author XGKerwin
  */
 @WebServlet(name = "GetMunicipalStudentSource", value = "/GetMunicipalStudentSource")
 public class GetMunicipalStudentSource extends HttpServlet {
@@ -39,7 +40,7 @@ public class GetMunicipalStudentSource extends HttpServlet {
                     Integer.parseInt(student.getWai()) > 200){
                 eliteStudent ++;
             }
-            if (student.getPovertyStudent().equals("1")){
+            if ("1".equals(student.getPovertyStudent())){
                 poorStudent ++;
             }
         }

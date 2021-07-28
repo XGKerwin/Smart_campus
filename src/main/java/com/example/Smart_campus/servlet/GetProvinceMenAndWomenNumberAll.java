@@ -45,9 +45,9 @@ public class GetProvinceMenAndWomenNumberAll extends HttpServlet {
             int woman = 0;
 
             for (Student student : studentList) {
-                if (student.getSex().equals("男")){
+                if ("男".equals(student.getSex())){
                     man++;
-                }else if (student.getSex().equals("女")){
+                }else if ("女".equals(student.getSex())){
                     woman++;
                 }
             }

@@ -27,7 +27,7 @@ public class Major_query_all extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        
     }
 
     @Override

@@ -52,7 +52,7 @@ public class GetProvinceStudentSource extends HttpServlet {
                         Integer.parseInt(student.getWai()) > 200){
                     eliteStudent ++;
                 }
-                if (student.getPovertyStudent().equals("1")){
+                if ("1".equals(student.getPovertyStudent())){
                     poorStudent ++;
                 }
             }
