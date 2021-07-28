@@ -28,13 +28,13 @@ public class getWorkNatureName_query_all extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.Setting(req,resp);
-        List<WorkNature> work_natures = new WorkNatureDaoImpl().queryWorkNatureAll();
+        List<WorkNature> workNatures = new WorkNatureDaoImpl().queryWorkNatureAll();
         JSONObject jsonObject = new JSONObject();
 
-        if (work_natures != null){
-            jsonObject.put("data",new JSONArray(work_natures));
+        if (workNatures != null){
+            jsonObject.put("data",new JSONArray(workNatures));
         }
-        ServletUtils.isOk(jsonObject, work_natures != null);
+        ServletUtils.isOk(jsonObject, workNatures != null);
         resp.getWriter().write(jsonObject.toString());
 
     }
