@@ -20,4 +20,7 @@ public interface StudentDao {
 
     public List<Student> queryStudentByMajorId(String majorId);
 
+    public Student queryStudentCard(String card);
+
+
 }

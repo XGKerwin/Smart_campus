@@ -38,6 +38,15 @@ public class Student {
     private String wai;
     private String schoolCard;
     private String sum;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public String toString() {
@@ -55,7 +64,8 @@ public class Student {
                 ", shu='" + shu + '\'' +
                 ", wai='" + wai + '\'' +
                 ", schoolCard='" + schoolCard + '\'' +
-                ", sum=" + sum +
+                ", sum='" + sum + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 

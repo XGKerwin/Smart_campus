@@ -28,8 +28,7 @@ public class GetMunicipalStudentSource extends HttpServlet {
             System.out.println("市名称参数不对");
             return;
         }
-        List<Student> studentList =
-                new StudentDaoImpl().queryStudentByMunicipalId(municipal.getId());
+        List<Student> studentList = new StudentDaoImpl().queryStudentByMunicipalId(municipal.getId());
         System.out.println("MunicipalId="+municipal.getId()+"结果："+studentList);
 
         int eliteStudent = 0;
