@@ -1,0 +1,205 @@
+Index: src/main/java/com/example/Smart_campus/servlet/Major_query_all.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/Smart_campus/servlet/Major_query_all.java b/src/main/java/com/example/Smart_campus/servlet/Major_query_all.java
+--- a/src/main/java/com/example/Smart_campus/servlet/Major_query_all.java	(revision a957760a20ec9fa6310451c62df1eae9a8d90568)
++++ b/src/main/java/com/example/Smart_campus/servlet/Major_query_all.java	(date 1627434182481)
+@@ -27,7 +27,7 @@
+ 
+     @Override
+     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+-
++        
+     }
+ 
+     @Override
+Index: src/main/java/com/example/Smart_campus/servlet/getWorkNatureName_query_all.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/Smart_campus/servlet/getWorkNatureName_query_all.java b/src/main/java/com/example/Smart_campus/servlet/getWorkNatureName_query_all.java
+--- a/src/main/java/com/example/Smart_campus/servlet/getWorkNatureName_query_all.java	(revision a957760a20ec9fa6310451c62df1eae9a8d90568)
++++ b/src/main/java/com/example/Smart_campus/servlet/getWorkNatureName_query_all.java	(date 1627437048866)
+@@ -28,13 +28,13 @@
+     @Override
+     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         ServletUtils.Setting(req,resp);
+-        List<WorkNature> work_natures = new WorkNatureDaoImpl().queryWorkNatureAll();
++        List<WorkNature> workNatures = new WorkNatureDaoImpl().queryWorkNatureAll();
+         JSONObject jsonObject = new JSONObject();
+ 
+-        if (work_natures != null){
+-            jsonObject.put("data",new JSONArray(work_natures));
++        if (workNatures != null){
++            jsonObject.put("data",new JSONArray(workNatures));
+         }
+-        ServletUtils.isOk(jsonObject, work_natures != null);
++        ServletUtils.isOk(jsonObject, workNatures != null);
+         resp.getWriter().write(jsonObject.toString());
+ 
+     }
+Index: src/main/java/com/example/Smart_campus/servlet/GetProvinceStudentSource.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/Smart_campus/servlet/GetProvinceStudentSource.java b/src/main/java/com/example/Smart_campus/servlet/GetProvinceStudentSource.java
+--- a/src/main/java/com/example/Smart_campus/servlet/GetProvinceStudentSource.java	(revision a957760a20ec9fa6310451c62df1eae9a8d90568)
++++ b/src/main/java/com/example/Smart_campus/servlet/GetProvinceStudentSource.java	(date 1627437048859)
+@@ -52,7 +52,7 @@
+                         Integer.parseInt(student.getWai()) > 200){
+                     eliteStudent ++;
+                 }
+-                if (student.getPovertyStudent().equals("1")){
++                if ("1".equals(student.getPovertyStudent())){
+                     poorStudent ++;
+                 }
+             }
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1627436476465)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1627436476465)
+@@ -0,0 +1,36 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="JavaDoc" enabled="true" level="WARNING" enabled_by_default="true">
++      <option name="TOP_LEVEL_CLASS_OPTIONS">
++        <value>
++          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
++          <option name="REQUIRED_TAGS" value="" />
++        </value>
++      </option>
++      <option name="INNER_CLASS_OPTIONS">
++        <value>
++          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
++          <option name="REQUIRED_TAGS" value="" />
++        </value>
++      </option>
++      <option name="METHOD_OPTIONS">
++        <value>
++          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
++          <option name="REQUIRED_TAGS" value="@return@param@throws or @exception" />
++        </value>
++      </option>
++      <option name="FIELD_OPTIONS">
++        <value>
++          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
++          <option name="REQUIRED_TAGS" value="" />
++        </value>
++      </option>
++      <option name="IGNORE_DEPRECATED" value="false" />
++      <option name="IGNORE_JAVADOC_PERIOD" value="true" />
++      <option name="IGNORE_DUPLICATED_THROWS" value="false" />
++      <option name="IGNORE_POINT_TO_ITSELF" value="false" />
++      <option name="myAdditionalJavadocTags" value="date" />
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+Index: Smart_campus.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Smart_campus.iml b/Smart_campus.iml
+--- a/Smart_campus.iml	(revision a957760a20ec9fa6310451c62df1eae9a8d90568)
++++ b/Smart_campus.iml	(date 1627395430926)
+@@ -18,7 +18,9 @@
+     <facet type="jpa" name="JPA">
+       <configuration>
+         <setting name="validation-enabled" value="true" />
+-        <datasource-mapping />
++        <datasource-mapping>
++          <factory-entry name="default" />
++        </datasource-mapping>
+         <naming-strategy-map />
+         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
+       </configuration>
+Index: src/main/java/com/example/Smart_campus/servlet/GetProvinceMenAndWomenNumberAll.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/Smart_campus/servlet/GetProvinceMenAndWomenNumberAll.java b/src/main/java/com/example/Smart_campus/servlet/GetProvinceMenAndWomenNumberAll.java
+--- a/src/main/java/com/example/Smart_campus/servlet/GetProvinceMenAndWomenNumberAll.java	(revision a957760a20ec9fa6310451c62df1eae9a8d90568)
++++ b/src/main/java/com/example/Smart_campus/servlet/GetProvinceMenAndWomenNumberAll.java	(date 1627437048880)
+@@ -45,9 +45,9 @@
+             int woman = 0;
+ 
+             for (Student student : studentList) {
+-                if (student.getSex().equals("男")){
++                if ("男".equals(student.getSex())){
+                     man++;
+-                }else if (student.getSex().equals("女")){
++                }else if ("女".equals(student.getSex())){
+                     woman++;
+                 }
+             }
+Index: src/main/java/com/example/Smart_campus/servlet/GetMunicipalStudentSource.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/Smart_campus/servlet/GetMunicipalStudentSource.java b/src/main/java/com/example/Smart_campus/servlet/GetMunicipalStudentSource.java
+--- a/src/main/java/com/example/Smart_campus/servlet/GetMunicipalStudentSource.java	(revision a957760a20ec9fa6310451c62df1eae9a8d90568)
++++ b/src/main/java/com/example/Smart_campus/servlet/GetMunicipalStudentSource.java	(date 1627437048874)
+@@ -16,6 +16,7 @@
+ 
+ /**
+  * 获取市的生源信息
++ * @author XGKerwin
+  */
+ @WebServlet(name = "GetMunicipalStudentSource", value = "/GetMunicipalStudentSource")
+ public class GetMunicipalStudentSource extends HttpServlet {
+@@ -39,7 +40,7 @@
+                     Integer.parseInt(student.getWai()) > 200){
+                 eliteStudent ++;
+             }
+-            if (student.getPovertyStudent().equals("1")){
++            if ("1".equals(student.getPovertyStudent())){
+                 poorStudent ++;
+             }
+         }
+diff --git a/target/classes/com/example/Smart_campus/dao/impl/StudentDaoImpl.class b/target/classes/com/example/Smart_campus/dao/impl/StudentDaoImpl.class
+index 467c769b40aa15ba546de0a6d17bbe1fc57f6326..13da6119d2589bb5dd63a8a209527c2c98886a4c
+GIT binary patch
+literal 1335
+zc$}3}TTc@~6#k}L*tQglt=v>_ks`ei*BIZ57{Q<<TYadK7$3~E9m_O(fxW2wD}B+#
+zM1O!k%6RsIRN8WRnRDjMcfRl2IXl1q{P+dn5jJwjLd#%9#a$JvIb=}IU@e1tD%Mq0
+zR8$!zH>EB8Ee54h-DgPeI9<U|Fr+PB23A|RuX)>~O3`pS+}!7`4EISf?H@>w;i1uS
+zEM0u&)}bl%mc?EFeTO!Ir+2xdODgLvKj;eEf5x3X+BQhyC=l*(QhsWhBvGjveg2W_
+zfiF$nke*L4#XAa*;scZ0Jz{dD-J_#yOZIH;2QE2j4E1h~H`Ny0J~7nTBBsSbFWbk>
+zz?L0($j!YjL%A}nJ;LXdHQ3a=MAKCa&Ym&I`;HsxsMblAYdL}25xX*+OX>gHz8?zb
+zF@-!adBPMOU#n>!T*uP97|5`8DKiW+r{DFe-6y6zYN#{RNAhZ)4umVTfxFQjYfl)~
+z&qc@I6eAy8_19vkUfi<HJwbRfaxV6inIRvIVApZO*)hBrobZmxJ+Co5@^{AB+Zz6L
+zutM)L3z{H3+B8KP6Rp#<(<w5F6SePPUnxo98m*I2aT*0$^DzK3xK5EC3QB|uo1YU|
+ziejOdGHOMouKYy$8z#Q|qsc|b^H8u5QO(8hgi0am8<-`^xu|2FvIQ(A<Zqx70w@(H
+zn?$~mCi1sRy){B$iGa(IfEKqT0%3MD5>TiTN~IF1TU5I}LQ1_zYL$THF;YuorIw@Y
+F&R@a}M*;u<
+
+diff --git a/target/Smart_campus-1.0-SNAPSHOT/WEB-INF/classes/com/example/Smart_campus/dao/impl/StudentDaoImpl.class b/target/Smart_campus-1.0-SNAPSHOT/WEB-INF/classes/com/example/Smart_campus/dao/impl/StudentDaoImpl.class
+index 467c769b40aa15ba546de0a6d17bbe1fc57f6326..13da6119d2589bb5dd63a8a209527c2c98886a4c
+GIT binary patch
+literal 1335
+zc$}3}TTc@~6#k}L*tQglt=v>_ks`ei*BIZ57{Q<<TYadK7$3~E9m_O(fxW2wD}B+#
+zM1O!k%6RsIRN8WRnRDjMcfRl2IXl1q{P+dn5jJwjLd#%9#a$JvIb=}IU@e1tD%Mq0
+zR8$!zH>EB8Ee54h-DgPeI9<U|Fr+PB23A|RuX)>~O3`pS+}!7`4EISf?H@>w;i1uS
+zEM0u&)}bl%mc?EFeTO!Ir+2xdODgLvKj;eEf5x3X+BQhyC=l*(QhsWhBvGjveg2W_
+zfiF$nke*L4#XAa*;scZ0Jz{dD-J_#yOZIH;2QE2j4E1h~H`Ny0J~7nTBBsSbFWbk>
+zz?L0($j!YjL%A}nJ;LXdHQ3a=MAKCa&Ym&I`;HsxsMblAYdL}25xX*+OX>gHz8?zb
+zF@-!adBPMOU#n>!T*uP97|5`8DKiW+r{DFe-6y6zYN#{RNAhZ)4umVTfxFQjYfl)~
+z&qc@I6eAy8_19vkUfi<HJwbRfaxV6inIRvIVApZO*)hBrobZmxJ+Co5@^{AB+Zz6L
+zutM)L3z{H3+B8KP6Rp#<(<w5F6SePPUnxo98m*I2aT*0$^DzK3xK5EC3QB|uo1YU|
+ziejOdGHOMouKYy$8z#Q|qsc|b^H8u5QO(8hgi0am8<-`^xu|2FvIQ(A<Zqx70w@(H
+zn?$~mCi1sRy){B$iGa(IfEKqT0%3MD5>TiTN~IF1TU5I}LQ1_zYL$THF;YuorIw@Y
+F&R@a}M*;u<
+
