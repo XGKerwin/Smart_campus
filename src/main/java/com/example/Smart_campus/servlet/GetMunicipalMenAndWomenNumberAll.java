@@ -25,6 +25,7 @@ public class GetMunicipalMenAndWomenNumberAll extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         ServletUtils.Setting(request, response);
+
         Province province = new ProvinceDaoImpl()
             .queryProvinceByProvinceName(request.getParameter("provinceName"));
 
